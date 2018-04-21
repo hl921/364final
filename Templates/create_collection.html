@@ -1,0 +1,19 @@
+<h1>Create a unique photo collection</h1>
+{% extends 'base.html' %}
+
+{% block navigation %}
+ {{ super() }}
+{% endblock %}
+
+{% block main_content %}
+
+<form action="" method="POST">
+	{{ form.hidden_tag() }}
+	{{ form.name.label }} {{ form.name() }}
+  <br>
+	{{ form.photo_picks.label }} {{ form.photo_picks() }}
+  <br>
+	{{ form.submit.label }}{{ form.submit() }}
+</form>
+
+{% endblock %}

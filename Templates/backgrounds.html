@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block navigation %}
+ {{ super() }}
+{% endblock %}
+
+{% block main_content %}
+
+{% if not bgs %}
+There are no answers to show.
+
+{% else %}
+
+
+<ul>
+{% for p in bgs %}
+    <li>
+        <a href="{{ url_for('one_bg',ident=p.name )}}">{{ p.name }}</a>
+        <form method = "POST" action = "/delete/{{ p.name }}">
+            {{ form.hidden_tag() }}
+            {{ form.submit() }}
+        </form>
+    </li>
+{% endfor %}
+</ul>
+{% endif %}
+
+<div>
+{% for message in get_flashed_messages() %}
+<strong>*** {{ message }} ***</strong>
+{% endfor %}
+</div>
+
+{% endblock %}

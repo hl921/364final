@@ -1,0 +1,32 @@
+<h1>Search results for {{ term.term }}</h1>
+{% extends 'base.html' %}
+
+{% block navigation %}
+ {{ super() }}
+{% endblock %}
+
+{% block main_content %}
+
+<ul style="list-style-type:square">
+{% for sg in photos %}
+  <li><h4>Likes: {{ sg.likes }}</h4>
+  Click to download the photo <a href="{{ sg.download }}">here</a>.
+  <h2 style="color:{{ sg.color }};"><font size ="4">&#10024;</font> color picked from the photo <font size ="4">&#10024;</font></h1>
+  <iframe src={{ sg.url }} width="400" height="300" frameBorder="0" ></iframe>
+  <br>
+</li>
+
+<br>
+{% endfor %}
+</ul>
+{% if not photos %}
+There are no saved photos to show.
+{% endif %}
+
+<div>
+{% for message in get_flashed_messages() %}
+<strong>*** {{ message }} ***</strong>
+{% endfor %}
+</div>
+
+{% endblock %}

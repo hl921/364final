@@ -1,0 +1,29 @@
+<h1> All photos </h1>
+{% extends 'base.html' %}
+{% block navigation %}
+ {{ super() }}
+{% endblock %}
+
+{% block main_content %}
+
+{% for sg in all_photos %}
+<br>
+  <font size = '6' style="color:{{ sg.color }};">&#9829;</font>
+  <div><iframe src={{ sg.url }} width="400" height="300" frameBorder="0" ></iframe>
+
+
+<br>
+{% endfor %}
+
+{% if not all_photos %}
+There are no saved photos to show.
+{% endif %}
+
+<div>
+{% for message in get_flashed_messages() %}
+<strong>*** {{ message }} ***</strong>
+{% endfor %}
+</div>
+
+<a href="{{ url_for('index')}}">Return to search for new photos</a>
+{% endblock %}

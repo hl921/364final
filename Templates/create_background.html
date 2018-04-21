@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block navigation %}
+ {{ super() }}
+{% endblock %}
+
+{% block main_content %}
+<form action= "" method="POST">
+
+    {{ form.name.label }} {{ form.name() }}<br>
+    {{ form.preference.label }}{{ form.preference() }}<br>
+    {{ form.submit() }}<br>
+    {{ form.hidden_tag() }}
+</form>
+
+{% for message in get_flashed_messages() %}
+  {{ message }}
+{% endfor %}
+
+{% endblock %}

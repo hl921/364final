@@ -1,0 +1,23 @@
+<h1>{{ b.name }}</h1>
+{% extends 'base.html' %}
+
+{% block navigation %}
+ {{ super() }}
+{% endblock %}
+
+{% block main_content %}
+
+
+<b>{{ b.name }}</b> - Background preference: <b>{{ b.preference }}</b>
+<form method="POST" action="/update/{{ b.name }}">
+    {{ form.submit() }}
+</form>
+
+
+<div>
+{% for message in get_flashed_messages() %}
+<strong>*** {{ message }} ***</strong>
+{% endfor %}
+</div>
+
+{% endblock %}

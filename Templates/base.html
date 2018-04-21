@@ -1,0 +1,37 @@
+<h1>Mini Unsplash App</h1>
+
+{% if current_user.is_authenticated %}
+    <a href="{{ url_for('logout') }}">Sign Out {{current_user.username}}</a>
+{% else %}
+    <a href="{{ url_for('login') }}">Sign In</a>
+{% endif %}
+<br>
+<br>
+
+{% block navigation %}
+<ul><i>
+    <li><a href="{{ url_for('index') }}">Search for photos</a>
+    <li><a href="{{ url_for('all_photos') }}">See all photos</a></li>
+    <li><a href="{{ url_for('search_terms') }}">See all past searches</a></li>
+    <li><a href="{{ url_for('create_collection') }}">Create a personal Unsplash photo collection</a></li>
+    <li><a href="{{ url_for('collections') }}">See your collections</a></li>
+    <li><a href="{{ url_for('backgrounds') }}">Choose your background preference</a></li>
+    <li><a href="{{ url_for('b_info') }}">See all preferences</a></li></li></i>
+</ul>
+<br>
+{% endblock %}
+
+{% block main_content %}
+<form method="POST">
+	{{ form.hidden_tag() }}
+	{{ form.search.label }} {{ form.search() }}
+	{{ form.submit() }}
+</form>
+
+<div>
+{% for message in get_flashed_messages() %}
+{{ message }}
+{% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+<h1>preference update</h1>
+
+<br>
+
+<form method="POST" action="/update/{{ name }}">
+    {{ form.hidden_tag() }}
+    {{ form.newPreference.label }} {{ form.newPreference() }}
+    {{ form.submit() }}
+
+</form>
+
+<div>
+    {% for message in get_flashed_messages() %}
+    {{ message }}
+    {% endfor %}
+</div>
