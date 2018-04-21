@@ -124,7 +124,7 @@ In this project:
 
 - [ ] At least one WTForm that sends data with a `GET` request to a *new* page.
 
-- [ ] At least one WTForm that sends data with a `POST` request to the *same* page. (NOT counting the login or registration forms provided for you in class.)
+- [x] At least one WTForm that sends data with a `POST` request to the *same* page. (NOT counting the login or registration forms provided for you in class.)
 
 - [x] At least one WTForm that sends data with a `POST` request to a *new* page. (NOT counting the login or registration forms provided for you in class.)
 
