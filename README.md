@@ -1,6 +1,5 @@
 # Mini Unsplash
 
-## My project
 
 
 In this project:
